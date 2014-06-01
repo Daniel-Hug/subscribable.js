@@ -6,7 +6,7 @@ A tiny extendable JS constructor for custom event listening. Use it in the brows
 ## Install
 
 ```
-npm install subscribable
+npm install subscribable.js
 ```
 **OR**
 ```

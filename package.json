@@ -1,5 +1,5 @@
 {
-  "name": "subscribable",
+  "name": "subscribable.js",
   "version": "0.0.0",
   "description": "custom event listening in JS",
   "main": "subscribable.js",
