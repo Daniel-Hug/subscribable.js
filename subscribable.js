@@ -1,10 +1,10 @@
 // https://github.com/Daniel-Hug/subscribable
 (function (root, factory) {
 	if (typeof define === 'function' && define.amd)
-		define([], factory);
+		define(factory);
 	else if (typeof exports === 'object')
 		module.exports = factory();
-	else root.Obj = factory();
+	else root.Subscribable = factory();
 })(this, function () {
 
 	var Subscribable = function() {
