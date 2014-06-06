@@ -30,20 +30,20 @@ Daniel.trigger('puke', 'That was gross!');
 
 ## Add events to any constructor
 
-This example uses the `Obj.extend` function from [object-subscribe](https://github.com/Daniel-Hug/object-subscribe) to make a `Person` contructor inherit event subscribing features from `Subscribable`:
+In this example the `Person` contructor inherits its event subscribing capability from `Subscribable`:
 
 ```js
 var Person = function(name) {
-	// add properties from `new Subscribable()` to `this`:
-	Obj.extend(new Subscribable(), this);
+	this.subscribers = {};
 	this.name = name;
 };
 
-Person.prototype = Obj.extend(Subscribable.prototype, {
+Person.prototype = new Subscribable();
+Obj.extend({
 	sayName: function() {
 		console.log('Hi! I\'m ' + this.name + '.');
 	}
-});
+}, Person.prototype);
 
 var Daniel = new Person('Daniel');
 
