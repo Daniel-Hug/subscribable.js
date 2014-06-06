@@ -5,40 +5,45 @@
 	else if (typeof exports === 'object')
 		module.exports = factory();
 	else root.Subscribable = factory();
-})(this, function () {
+})(this, function() {
 
 	var Subscribable = function() {
 		this.subscribers = {
-			change: []
+			any: []
 		};
 	};
 
 	Subscribable.prototype = {
-		// Subscribe a function to an event (if the event doesn't exist, create it):
-		on: function(event, fn) {
-			if (!this.subscribers[event]) this.subscribers[event] = [];
-			this.subscribers[event].push(fn);
+		// Subscribe a function to each event in a space-separated
+		// list of events. If an event doesn't exist, create it.
+		on: function(eventsStr, fn) {
+			eventsStr.split(' ').forEach(function(event) {
+				if (!this.subscribers[event]) this.subscribers[event] = [];
+				this.subscribers[event].push(fn);
+			}, this);
 		},
 
-		// Pass an event and a function to unsubscribe a specific function from an event,
-		// pass just an event to unsubscribe all functions from that event,
-		// or don't pass any arguments to cancel all subscriptions.
-		off: function (event, fn) {
-			if (event) {
-				if (fn) {
-					var fnIndex = this.subscribers[event].indexOf(fn);
-					if (fnIndex >= 0) this.subscribers[event].splice(fnIndex, 1);
-				} else {
-					this.subscribers[event] = [];
-				}
+		// Pass a space-separated list of events and a function to unsubscribe a specific
+		// function from those events, pass just the events to unsubscribe all functions
+		// from those events, or don't pass any arguments to cancel all subscriptions.
+		off: function (eventsStr, fn) {
+			if (eventsStr) {
+				eventsStr.split(' ').forEach(function(event) {
+					if (fn) {
+						var fnIndex = this.subscribers[event].indexOf(fn);
+						if (fnIndex >= 0) this.subscribers[event].splice(fnIndex, 1);
+					} else {
+						this.subscribers[event] = [];
+					}
+				}, this);
 			} else {
-				for (event in this.subscribers) {
+				for (var event in this.subscribers) {
 					this.subscribers[event] = [];
 				}
 			}
 		},
 
-		// notify all subscribers to an event:
+		// Notify all the subscribers of an event
 		trigger: function(event) {
 			var args = [].slice.call(arguments, 1);
 			var t = this;
@@ -46,7 +51,7 @@
 				fn.apply(t, args);
 			};
 			(this.subscribers[event] || []).forEach(fn);
-			if (event !== 'change') this.subscribers.change.forEach(fn);
+			if (event !== 'any') this.subscribers.any.forEach(fn);
 		}
 	};
 

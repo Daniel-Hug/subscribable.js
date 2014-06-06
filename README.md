@@ -1,5 +1,5 @@
-Subscribable
-============
+Subscribable.js
+===============
 
 A tiny extendable JS constructor for custom event listening. Use it in the browser or in node:
 
@@ -10,7 +10,7 @@ npm install subscribable.js
 ```
 **OR**
 ```
-bower install subscribable
+bower install subscribable.js
 ```
 
 

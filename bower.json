@@ -1,7 +1,7 @@
 {
-  "name": "subscribable",
+  "name": "subscribable.js",
   "main": "subscribable.js",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "authors": [
     "Daniel Hug <danielthehug@gmail.com>"
   ],
@@ -18,7 +18,7 @@
     "subscribe"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Daniel-Hug/subscribable",
+  "homepage": "https://github.com/Daniel-Hug/subscribable.js",
   "ignore": [
     "**/.*",
     "node_modules",

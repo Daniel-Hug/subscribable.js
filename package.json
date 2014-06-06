@@ -1,11 +1,11 @@
 {
   "name": "subscribable.js",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "custom event listening in JS",
   "main": "subscribable.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Daniel-Hug/subscribable"
+    "url": "https://github.com/Daniel-Hug/subscribable.js"
   },
   "keywords": [
     "custom events",
@@ -16,7 +16,7 @@
   "author": "Daniel Hug <danielthehug@gmail.com> (http://hugwebdesign.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Daniel-Hug/subscribable/issues"
+    "url": "https://github.com/Daniel-Hug/subscribable.js/issues"
   },
-  "homepage": "https://github.com/Daniel-Hug/subscribable"
+  "homepage": "https://github.com/Daniel-Hug/subscribable.js"
 }
