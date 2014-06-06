@@ -19,7 +19,7 @@ bower install subscribable.js
 ```js
 var Daniel = new Subscribable();
 
-Daniel.on('puke', function(msg) {
+Daniel.on('puke', function(event, msg) {
 	console.log('Eeeww! ' + msg);
 });
 
@@ -50,7 +50,7 @@ var Daniel = new Person('Daniel');
 Daniel.sayName();
 //=> Hi! I'm Daniel.
 
-Daniel.on('smile', function showTeeth(numTeeth) {
+Daniel.on('smile', function showTeeth(event, numTeeth) {
 	console.log('Oh look! ' + this.name + ' has ' + numTeeth + ' teeth.');
 });
 

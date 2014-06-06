@@ -45,13 +45,13 @@
 
 		// Notify all the subscribers of an event
 		trigger: function(event) {
-			var args = [].slice.call(arguments, 1);
+			var args = arguments;
 			var t = this;
-			var fn = function(fn) {
+			function caller(fn) {
 				fn.apply(t, args);
-			};
-			(this.subscribers[event] || []).forEach(fn);
-			if (event !== 'any') this.subscribers.any.forEach(fn);
+			}
+			(this.subscribers[event] || []).forEach(caller);
+			if (event !== 'any') this.subscribers.any.forEach(caller);
 		}
 	};
 
