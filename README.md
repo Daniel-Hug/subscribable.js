@@ -39,11 +39,9 @@ var Person = function(name) {
 };
 
 Person.prototype = new Subscribable();
-Obj.extend({
-	sayName: function() {
-		console.log('Hi! I\'m ' + this.name + '.');
-	}
-}, Person.prototype);
+Person.prototype.sayName = function() {
+	console.log('Hi! I\'m ' + this.name + '.');
+};
 
 var Daniel = new Person('Daniel');
 
