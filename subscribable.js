@@ -51,7 +51,7 @@
 				fn.apply(t, args);
 			}
 			(this.subscribers[event] || []).forEach(caller);
-			if (event !== 'any') this.subscribers.any.forEach(caller);
+			if (event !== 'any') (this.subscribers.any || []).forEach(caller);
 		}
 	};
 
