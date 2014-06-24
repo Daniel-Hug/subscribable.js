@@ -1,6 +1,6 @@
 {
   "name": "subscribable.js",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "custom event listening in JS",
   "main": "subscribable.js",
   "repository": {
