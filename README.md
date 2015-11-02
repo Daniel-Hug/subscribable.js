@@ -61,7 +61,8 @@ Daniel.trigger('smile', 30);
 
 Add your own methods to the `Subscribable` prototype:
 
-```
+```js
+// subscribe, then unsubscribe after first trigger
 Subscribable.prototype.once = function(event, fn) {
 	var t = this;
 	this.on(event, function() {
