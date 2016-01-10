@@ -27,8 +27,6 @@ Daniel.trigger('puke', 'That was gross!');
 //=> Eeeww! That was gross!
 ```
 
-BTW, you can pass `true` as the last argument to `.on()` to have the callback called right away (without arguments).
-
 ## Add events to any constructor
 
 In this example the `Person` contructor inherits its event subscribing capability from `Subscribable`:
@@ -56,6 +54,18 @@ Daniel.on('smile', function showTeeth(event, numTeeth) {
 Daniel.trigger('smile', 30);
 //=> Oh look! Daniel has 30 teeth.
 ```
+
+## Methods
+
+ - **Subscibe to events:** `.on(eventsStr, handlerFn, callNow)`
+   - if `callNow` is truthy, `handlerFn` is called right away.
+   - `eventsStr` should be a space-seperated list of events, e.g. `'start stop'`. if `eventsStr` is `'any'`, then `handlerFn` will be called when any event is triggered on this instance of `Subscribable`, otherwise it will be called whenever an event in `eventsStr` is triggered.
+ - **Trigger events:** `.trigger(eventStr[, value1[, ...[, valueN]]])`
+   - trigger the `eventStr` event. Any subscribing handlers will be called with the same arguments passed to `.trigger()`.
+ - **Unsubscribe from events:** `.off(eventsStr, handlerFn)`
+   - pass no arguments to cancel all subscriptions
+   - pass `eventsStr` (a space-separated list of events) to unsubscribe all functions from those events
+   - or pass `eventsStr` and a function to unsubscribe a specific function from those events
 
 
 ## Extend
