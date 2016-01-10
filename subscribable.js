@@ -16,11 +16,12 @@
 	Subscribable.prototype = {
 		// Subscribe a function to each event in a space-separated
 		// list of events. If an event doesn't exist, create it.
-		on: function(eventsStr, fn) {
+		on: function(eventsStr, fn, callNow) {
 			eventsStr.split(' ').forEach(function(event) {
 				if (!this.subscribers[event]) this.subscribers[event] = [];
 				this.subscribers[event].push(fn);
 			}, this);
+			if (callNow) fn.call(this);
 		},
 
 		// Pass a space-separated list of events and a function to unsubscribe a specific

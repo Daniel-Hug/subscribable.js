@@ -27,6 +27,7 @@ Daniel.trigger('puke', 'That was gross!');
 //=> Eeeww! That was gross!
 ```
 
+BTW, you can pass `true` as the last argument to `.on()` to have the callback called right away (without arguments).
 
 ## Add events to any constructor
 
